@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Self-Employed Tax Return Discount</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 20px; }
+        .container { max-width: 600px; margin: auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px; box-shadow: 2px 2px 12px rgba(0,0,0,0.1); }
+        .cta-button { display: inline-block; background-color: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+        .timer { font-size: 18px; color: red; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Exclusive Tax Return Discount for Self-Employed!</h1>
+        <p>Save on your tax filing with our special offer. Limited time only!</p>
+        <img src="qr-code-placeholder.png" alt="Scan to Apply" width="200">
+        <p>Scan the QR code or click the button below to get started.</p>
+        <a href="#form" class="cta-button">Claim Your Discount</a>
+        <p class="timer" id="countdown">Offer expires in: </p>
+        <h2>What Our Clients Say</h2>
+        <p>"Fast, affordable, and hassle-free! Highly recommended!" - John D.</p>
+        <p>"Saved me so much time and money on my taxes!" - Sarah M.</p>
+        <h2>Apply Now</h2>
+        <form id="form">
+            <label>Name:</label><br>
+            <input type="text" name="name" required><br><br>
+            <label>Email:</label><br>
+            <input type="email" name="email" required><br><br>
+            <label>Phone:</label><br>
+            <input type="tel" name="phone" required><br><br>
+            <button type="submit" class="cta-button">Submit</button>
+        </form>
+    </div>
+    <script>
+        function countdownTimer() {
+            const deadline = new Date().getTime() + (3 * 24 * 60 * 60 * 1000);
+            const timer = setInterval(() => {
+                let now = new Date().getTime();
+                let remaining = deadline - now;
+                let days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((remaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                document.getElementById('countdown').innerText = `Offer expires in: ${days}d ${hours}h`;
+                if (remaining < 0) { clearInterval(timer); document.getElementById('countdown').innerText = "Offer expired!"; }
+            }, 1000);
+        }
+        countdownTimer();
+    </script>
+</body>
+</html>
